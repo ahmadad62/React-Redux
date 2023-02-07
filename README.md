@@ -131,7 +131,7 @@ const rootReducer = combineReducers({
 export default rootReducer
 ```
 
-## Redux Store
+## Redux store
 
 - This code defines a Redux store for the React application. The store is created using the createStore function from the redux library. The function takes three arguments:
 
@@ -142,8 +142,26 @@ export default rootReducer
 - composeWithDevTools(applyMiddleware(...middleware)): this is the store enhancer, which is used to apply middleware to the store. The code uses the composeWithDevTools function from the redux-devtools-extension library to enhance the store with the development tools. The middleware applied to the store is the redux-thunk middleware, which allows the dispatching of asynchronous actions.
 
 Finally, the store is exported and can be imported and used in other parts of the application.
+```javascript
+// import { configureStor } from "@reduxjs/toolkit";
+import { createStore, applyMiddleware } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension"
+import thunk from "redux-thunk"
+import rootReducer from "./reducers/rootReducer";
 
-## redux reducer
+const initialState = {}
+
+const middleware = [thunk]
+
+const store = createStore(
+    rootReducer,
+    initialState,
+    composeWithDevTools(applyMiddleware(...middleware))
+)
+
+export default store;
+```
+## Redux reducer
 This code defines a Redux reducer named calcReducer. The reducer is responsible for managing the state of the calculation-related data in the application.
 
 The reducer takes two arguments:
