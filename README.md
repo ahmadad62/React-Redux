@@ -201,7 +201,11 @@ export const calcReducer = (state = initialState, action) => {
 }
 ```
 
+### Note
+- configureStore is a method from the @reduxjs/toolkit library, while createStore is a method from the redux library. Both are used for creating a Redux store, but configureStore provides a more concise and convenient way of setting up the store.
+- createStore requires manual setup for all the necessary store components, such as the reducer, middleware, and dev tools. On the other hand, configureStore automatically sets up these components based on the configuration provided.
 
+- If you are using the redux library, you can use the createStore method to create your store. If you want to simplify the setup process, you can use the configureStore method from the @reduxjs/toolkit library.
 
 
 
