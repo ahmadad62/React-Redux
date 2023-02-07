@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { useDispatch, useSelector } from "react-redux"
 
-function App() {
+
+export default function App() {
+  const dispatch = useDispatch();
+  //accsses to re
+  const { adad } = useSelector(
+    state => ({
+
+      adad: state.calc.adad
+
+    }))
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      APP
+      <h2>{adad} </h2>
+      <button
+        onClick={() =>
+          dispatch({
+            type: "INCREMENT_ADAD"
+          })}
+      >
+        +
+      </button>
+      <button
+        onClick={() =>
+          dispatch({
+            type: "DECREMENT_ADAD"
+          })}
+      >
+        -
+      </button>
     </div>
-  );
+  )
 }
-
-export default App;
